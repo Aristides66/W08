@@ -1,0 +1,478 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #071a3d;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   INÍCIO
+========================= */
+
+.inicio {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 60px 20px;
+
+    background:
+        radial-gradient(circle at top, #164b9b, transparent 40%),
+        linear-gradient(135deg, #06142f, #0b2b63, #071a3d);
+
+    position: relative;
+}
+
+.conteudo-inicio {
+    max-width: 800px;
+    text-align: center;
+    z-index: 2;
+}
+
+.pequeno,
+.subtitulo {
+    color: #8bb8ff;
+    letter-spacing: 4px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.inicio h1 {
+    font-size: clamp(45px, 8vw, 80px);
+    margin-bottom: 10px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #8fc4ff,
+        #ffffff
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.inicio h2 {
+    font-size: 35px;
+    margin-bottom: 35px;
+    color: #9ecaff;
+}
+
+.texto-inicial {
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 20px auto;
+    color: #e8f1ff;
+}
+
+.destaque {
+    font-size: 26px;
+    color: white;
+    margin-top: 35px;
+}
+
+.seta {
+    font-size: 45px;
+    margin-top: 45px;
+
+    animation: subirDescer 1.5s infinite;
+}
+
+.arraste {
+    font-family: Arial, sans-serif;
+    color: #9fc5ff;
+    margin-top: 5px;
+}
+
+@keyframes subirDescer {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+
+/* =========================
+   CORAÇÃO
+========================= */
+
+.coracoes {
+    position: absolute;
+
+    top: 10%;
+    right: 10%;
+
+    font-size: 100px;
+    color: rgba(100, 170, 255, 0.08);
+
+    animation: flutuar 4s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+
+    0%, 100% {
+        transform: translateY(0) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+
+/* =========================
+   FOTOS
+========================= */
+
+.fotos {
+    min-height: 100vh;
+
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            180deg,
+            #071a3d,
+            #0a2860,
+            #071a3d
+        );
+}
+
+.fotos h2,
+.contador-section h2 {
+    font-size: clamp(30px, 5vw, 50px);
+    margin-bottom: 15px;
+}
+
+.instrucao {
+    font-family: Arial, sans-serif;
+    color: #b9d4ff;
+    margin-bottom: 45px;
+}
+
+
+/* =========================
+   CARROSSEL
+========================= */
+
+.carousel {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    cursor: grab;
+
+    padding: 20px 5px 35px;
+
+    scrollbar-width: none;
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel:active {
+    cursor: grabbing;
+}
+
+.cards {
+    display: flex;
+    gap: 30px;
+
+    width: max-content;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    width: 300px;
+    height: 430px;
+
+    perspective: 1000px;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    transition: transform 0.8s;
+
+    transform-style: preserve-3d;
+}
+
+.card.virado .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4);
+
+    border: 2px solid rgba(150, 200, 255, 0.3);
+}
+
+
+/* FRENTE */
+
+.card-front {
+    background: #0b2c64;
+}
+
+.card-front img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+/* VERSO */
+
+.card-back {
+    background:
+        linear-gradient(
+            135deg,
+            #0c3475,
+            #071a3d
+        );
+
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 35px;
+
+    text-align: center;
+}
+
+.card-back h3 {
+    color: #9bc5ff;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.card-back p {
+    font-family: Arial, sans-serif;
+
+    color: #e6f0ff;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+.arraste-fotos {
+    font-family: Arial, sans-serif;
+
+    color: #8ebaff;
+
+    margin-top: 20px;
+}
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+.contador-section {
+    min-height: 100vh;
+
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #174c99,
+            #071a3d 65%
+        );
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.contador {
+    margin-top: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.tempo {
+    min-width: 120px;
+
+    padding: 25px 15px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(160, 205, 255, 0.3);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.tempo span {
+    display: block;
+
+    font-size: 45px;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    color: #ffffff;
+}
+
+.tempo small {
+    display: block;
+
+    margin-top: 8px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #9bc5ff;
+}
+
+.separador {
+    font-size: 35px;
+
+    color: #91bcff;
+}
+
+
+/* =========================
+   MENSAGEM FINAL
+========================= */
+
+.mensagem-final {
+    max-width: 700px;
+
+    margin-top: 80px;
+
+    font-family: Arial, sans-serif;
+
+    color: #dceaff;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+}
+
+.mensagem-final h2 {
+    margin-top: 30px;
+
+    color: white;
+
+    font-family: Georgia, serif;
+}
+
+.finalzinho {
+    margin-top: 25px;
+
+    color: #9ec6ff;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .inicio {
+        padding: 50px 20px;
+    }
+
+    .texto-inicial {
+        font-size: 16px;
+    }
+
+    .card {
+        width: 270px;
+        height: 390px;
+    }
+
+    .tempo {
+        min-width: 95px;
+    }
+
+    .tempo span {
+        font-size: 32px;
+    }
+
+    .separador {
+        display: none;
+    }
+
+}
