@@ -67,7 +67,7 @@ carousel.addEventListener("mousemove", function(e) {
 // ================================
 
 // DIA EM QUE VOCÊS COMEÇARAM
-const inicioNamoro = new Date(2025, 4, 8, 0, 0, 0);
+const inicioNamoro = new Date(2026, 4, 8, 0, 0, 0);
 
 
 // Função responsável pelo contador
